@@ -31,19 +31,13 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fw-semibold text-uppercase text-black  me-1" href="#" id="navbarDropdown"
+            <a class="nav-link fw-semibold text-uppercase text-black  me-1" href="#" id="navbarDropdown"
               role="button" data-bs-toggle="dropdown" aria-expanded="false">
               shop
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Option</a></li>
-              <li><a class="dropdown-item" href="#">Option</a></li>
-
-              <li><a class="dropdown-item" href="#">Option</a></li>
-            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-semibold text-uppercase text-black  me-1" href="#">Contact us</a>
+            <a class="nav-link fw-semibold text-uppercase text-black  me-1" href="#">Policy</a>
           </li>
           <li>
             <a class="nav-link" href="#"><i class="fa fa-search fs-5" style="color: #333;"></i></a>
@@ -53,7 +47,7 @@
               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-shopping-cart fs-5" style="color: #333;"></i>
               <span class="position-absolute  translate-middle badge rounded-pill bg-danger">
-               2
+              {{cartProducts.length}}
                 <span class="visually-hidden">unread messages</span>
               </span>
             </a>
@@ -108,7 +102,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12 text-end">
-                    <button class="btn btn-sm btn-success">Checkout</button>
+                    <button class="btn btn-sm btn-success" >Checkout</button>
                   </div>
                 </div> 
               </div>
@@ -119,5 +113,5 @@
     </div>
   </nav>
 </header>
-<app-home></app-home>
-<app-shop></app-shop>
+
+<router-outlet></router-outlet>

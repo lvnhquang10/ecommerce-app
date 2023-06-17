@@ -16,25 +16,24 @@ export class HomeComponent implements OnInit{
     "Quantity": 0,
     "AddedDate": "2023-06-14T22:26:12.064Z"
   };
-  constructor(private productService: ProductService) {
+  constructor(public productService: ProductService) {
 
   }
 
-ngOnInit(): void {
-  debugger;
-  this.loadAllProducts;
-}
+  ngOnInit(): void {
+    this.loadAllProducts();
+  }
 
   loadAllProducts() {
-    debugger;
+    
     this.productService.getAllProducts().subscribe((result: any)=>{
       this.productList = result.data;
     })
   }
 
   addItemToCart(productId: number) {
-    debugger;
-    this.cartObj.productId = productId;
+    
+    this.cartObj.ProductId = productId;
     this.productService.addToCart(this.cartObj).subscribe((result: any)=>{
       if(result.result) {
         alert("Product Added To Cart");
