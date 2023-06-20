@@ -1,11 +1,11 @@
 <div class="customer-auth">
     <div class="sign-up">
         <h1>Sign Up</h1>
-        <form class="common-form">
-            <input class="form-input" type="text" placeholder="Your First Name" name="name">
-            <input class="form-input" type="text" placeholder="Your Last Name" name="name">
-            <input class="form-input" type="text" placeholder="Password" name="password">
-            <input class="form-input" type="text" placeholder="Your Email" name="email">
+        <form #customerSignUp="ngForm" class="common-form">
+            <input class="form-input" type="text" placeholder="Your First Name" name="name" ngModel />
+            <input class="form-input" type="text" placeholder="Your Last Name" name="name" />
+            <input class="form-input" type="text" placeholder="Password" name="password" />
+            <input class="form-input" type="text" placeholder="Your Email" name="email" />
             <button class="form-button">Sign Up</button>
         </form>
     </div>
