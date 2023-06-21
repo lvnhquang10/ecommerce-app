@@ -1,6 +1,6 @@
 .footer-top {
     padding: 50px 0;
-    background: #111;
+    background: #fff;
 }
 
 .footer-top-menu ul {
@@ -11,7 +11,7 @@
 .footer-top-menu ul li {
     list-style-type: none;
     margin-top: 20px;
-    color: #fff;
+    color: #363636;
 }
 
 .footer-top-menu i {
@@ -26,14 +26,14 @@
 }
 
 .footer-top-menu ul li .address {
-    color: #ccc;
+    color: #363636;
     padding-left: 10px;
     font-size: 15px;
 }
 
 .footer-top-menu ul li .email a {
     padding-left: 10px;
-    color:#ccc;
+    color:#363636;
     text-decoration: underline;
     transition: .3s all ease;
     font-size: 15px;
