@@ -7,22 +7,14 @@ import { ProductService } from './services/product.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ecommerce_app';
-  cartProducts: any[] = [];
+  
   constructor(private productService: ProductService) {
-    this.productService.cartAddedSubject.subscribe(res=> {
-
-    })
+    
   }
 
   ngOnInit(): void {
-    this.loadCart();
+    
   }
 
-  loadCart() {
-    this.productService.getCartItemsByCustId(1).subscribe((res: any)=> {
-      this.cartProducts = res.data;
-      
-    })
-  }
+  
 }

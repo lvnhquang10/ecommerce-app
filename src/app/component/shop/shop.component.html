@@ -1,25 +1,24 @@
-<div class="categories">
-    <h1>Shop Page</h1>
-    <div class="category">
-        <div class="col-lg-3 pt-1" *ngFor="let product of productList">
-            <div class="box-shadow">
-                <div class="card">
-                    <img class="img-fluid" style="height: 200px;" [src]="product.productImageUrl" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{product.productName}}</h5>
-                        <p class="card-text">
-                            <span class="text-danger fw-semibold me-2">${{product.productPrice}}</span><del> ${{product.productPrice}}</del>
-                            <span class="text-success ms-2">15% Off</span></p>
-                        <div class="row">
-                            <div class="col-6 text-end">
-                                <button class="btn btn-sm btn-success" (click)="addItemToCart(product.productId)"> Add To Cart</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of productList">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h4 
+                style="white-space: initial; 
+                overflow: initial; 
+                text-overflow: ellipsis; 
+                max-width: 100ch;">{{item.title}}></h4>
+                <span>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    (20)
+                </span>
+                <p>${{item.price}} <span class="origin-price">$200</span><span class="sale-off">(50% off)</span></p>
+                <button class="btn btn-dark">Add to cart</button>
             </div>
-        </div> 
+        </ng-container>
     </div>
 </div>
