@@ -1,69 +1,37 @@
-<div class="cart-page">
-    <h1>Cart Page</h1>
-    <div class="row">
-        <div class="col-sm-8 details">
-            <ul>
-                <li>
-                    <img src="https://i.etsystatic.com/10849216/r/il/7e8367/2455695056/il_fullxfull.2455695056_g2h7.jpg" alt="">
-                </li>
-                <li>
-                    <span> Product Name</span>
-                </li>
-                <li>
-                    <span> Price : 100</span>
-                </li>
-                <li>
-                    <span> Quantity</span>
-                </li>
-                <li>
-                    <button class="form-button">Remove</button>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <img src="https://i.etsystatic.com/10849216/r/il/7e8367/2455695056/il_fullxfull.2455695056_g2h7.jpg" alt="">
-                </li>
-                <li>
-                    <span> Product Name</span>
-                </li>
-                <li>
-                    <span> Price : 100</span>
-                </li>
-                <li>
-                    <span> Quantity</span>
-                </li>
-                <li>
-                    <button class="form-button">Remove</button>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <img src="https://i.etsystatic.com/10849216/r/il/7e8367/2455695056/il_fullxfull.2455695056_g2h7.jpg" alt="">
-                </li>
-                <li>
-                    <span> Product Name</span>
-                </li>
-                <li>
-                    <span> Price : 100</span>
-                </li>
-                <li>
-                    <span> Quantity</span>
-                </li>
-                <li>
-                    <button class="form-button">Remove</button>
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-4 summary">
-            <h3>Summary</h3>
-            <ul>
-                <li><span>Amount:</span><span>300</span></li>
-                <li><span>Tax:</span><span>30</span></li>
-                <li><span>Delivery:</span><span>20</span></li>
-                <li><span>Discount:</span><span>50</span></li>
-                <li><span><h4>Total:</h4></span><span><h4>300</h4></span></li>
+<ng-container>
+    <div class="container">
+        <div class="card-table">
+            <div class="card-product">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>SL.No</th>
+                            <th>Product Name</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Quanity</th>
+                            <th>Total</th>
+                            <th>Remove</th>
 
-            </ul>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><img style="width: 150px; height: 150px;" src="" alt=""></td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                        </tr>
+                        <td>
+                            <td><button class="btn btn-danger">Remove all product</button></td>
+                            <td><button routerLink="/shop" class="btn btn-danger">Buy more</button></td>
+                    </td>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+</ng-container>
