@@ -1,13 +1,14 @@
-<ng-container>
+<ng-container *ngIf="products.length!=0">
     <div class="container">
         <div class="card-table">
             <div class="card-product">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>SL.No</th>
-                            <th>Product Name</th>
+                            <th>#</th>
                             <th>Image</th>
+                            <th>Product Name</th>
+                            
                             <th>Price</th>
                             <th>Quanity</th>
                             <th>Total</th>
@@ -15,23 +16,36 @@
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let item of products; let i = index">
                         <tr>
-                            <td>1</td>
-                            <td><img style="width: 150px; height: 150px;" src="" alt=""></td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td><button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                            <td>{{i+1}}</td>
+                            <td><img style="width: 150px; height: 150px;" src="{{item.image}}" alt=""></td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.total}}</td>
+                            <td><button class="btn btn-danger" (click)="remove(item)"><i class="fa fa-trash"></i></button></td>
                         </tr>
-                        <td>
-                            <td><button class="btn btn-danger">Remove all product</button></td>
-                            <td><button routerLink="/shop" class="btn btn-danger">Buy more</button></td>
-                    </td>
+                        <tr>
+                        
+                    </tr>
                     </tbody>
+                    <td colspan="4"></td>
+                        
+                        
+                        <td><button class="btn btn-yellow">Checkout</button></td>
+                        <td><strong>Total: {{total|currency:'USD':'symbol':'2.0'}}</strong></td>
                 </table>
+                
             </div>
         </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="products.length==0">
+    <div class="center">
+        <h4 style="font-weight: 600; ">Your cart is Empty!</h4>
+        <button routerLink="/shop" class="btn btn-dark">Shop now</button>
+
     </div>
 </ng-container>

@@ -1,34 +1,34 @@
 .nav {
     display: flex;
     justify-content: space-between;
+
 }
 
-h1 {
-    color: orange;
-    margin: 0;
-    font-size: 40px;
+.section-header {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    background-color: #303030;
 }
 
-.nav-search {
-    flex: 1;
-    display: flex;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5px;
+.search {
+    color: #fff;
+    font-size: 18px;
+}
+.mat-menu {
+    color: #fff;
+
 }
 
-.nav-search input {
-    flex: 1;
-    color: orange;
-    border: 1px solid #000;
-    height: 35px;
-    border-right: none;
+.menu-item {
+    list-style-type: none;
+    
 }
 
-.nav-search button {
-    color: orange;
-    border: 1px solid #000;
-    height: 39px;
+.mat-menu-item {
+    text-decoration: none;
+    font-size: 15px;
+    text-align: left;
+    color: #303030;
 }
 
 .nav ul {
@@ -45,5 +45,5 @@ h1 {
 
 .nav ul a {
     text-decoration: none;
-    color: orange;
+    color: #fff;
 }

@@ -1,6 +1,6 @@
 .footer-top {
     padding: 50px 0;
-    background: #fff;
+    background: #303030;
 }
 
 .footer-top-menu ul {
@@ -11,69 +11,52 @@
 .footer-top-menu ul li {
     list-style-type: none;
     margin-top: 20px;
-    color: #363636;
+    color: #fff;
 }
 
 .footer-top-menu i {
     margin-right: 10px;
-    font-size: 16px;
+    font-size: 14px;
+    text-align: center;
 }
 
 .footer-top-menu ul li .heading {
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 .footer-top-menu ul li .address {
-    color: #363636;
+    color: #fff;
     padding-left: 10px;
     font-size: 15px;
 }
 
 .footer-top-menu ul li .email a {
     padding-left: 10px;
-    color:#363636;
-    text-decoration: underline;
+    color: #fff;
     transition: .3s all ease;
     font-size: 15px;
 }
 
-.footer-top-menu ul li .email a:hover {
-    color: orange;
-}
-
 .footer-top-menu ul li .number a {
-    color: orange;
-    font-size: 20px;
+    color: #fff;
+    font-size: 15px;
     font-weight: 500;
     padding-left: 10px;
     text-decoration: none;
 }
 
 .footer-all-menu h2 {
-    color: orange;
-    font-weight: 600;
-    font-size: 16px;
-    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    font-size: 15px;
     position: relative;
     margin: 0;
 }
 
-.footer-all-menu h2::before {
-    position: absolute;
-    content: '';
-    width: 50px;
-    height: 2px;
-    background: #dbdbdb;
-    opacity: .1;
-    bottom: -19px;
-    left: 0;
-}
-
 .footer-all-menu ul {
     padding: 0;
-    margin: 30px 0 0 0;
+    margin: 0px 0 0 0;
 }
 
 .footer-all-menu ul li {
@@ -87,17 +70,4 @@
     color: #666;
     font-size: 15px;
     transition: all .3s ease;
-}
-
-.footer-all-menu ul li i {
-    font-size: 7px;
-    margin: -2px 10px 0 0;
-}
-
-.footer-all-menu ul li:hover i {
-    color: orange;
-}
-
-.footer-all-menu ul li a:hover {
-    color: orange;
 }

@@ -3,8 +3,7 @@
         <ng-container *ngFor="let item of productList">
             <div class="card col-md-3">
                 <img src="{{item.image}}" alt="">
-                <h4 
-                style="white-space: initial; 
+                <h4 style="white-space: initial; 
                 overflow: initial; 
                 text-overflow: ellipsis; 
                 max-width: 100ch;">{{item.title}}</h4>
@@ -17,7 +16,7 @@
                     (20)
                 </span>
                 <p>${{item.price}} <span class="origin-price">$200</span><span class="sale-off">(50% off)</span></p>
-                <button class="btn btn-dark">Add to cart</button>
+                <button class="btn btn-dark" (click)="addToCart(item)">Add to cart</button>
             </div>
         </ng-container>
     </div>

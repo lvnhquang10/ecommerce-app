@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from './services/product.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { ProductService } from './services/product.service';
 })
 export class AppComponent {
   
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private toast : NgToastService) {
     
   }
 

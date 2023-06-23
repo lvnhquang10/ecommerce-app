@@ -1,13 +1,35 @@
-<nav class="nav">
-    <span><img src="https://i.pinimg.com/564x/61/e6/e7/61e6e7c3f2cfc780b2e9c4d7d5c465c4.jpg" alt="ecom-app"></span>
-    <div class="nav-search">
-        <input type="text" placeholder="Search Products" />
-        <button>Search</button>
+<section class="section-header">
+<div class="container">
+    <div class="row">
+        <nav class="nav">
+            <div class="col-md-2 ">
+                <span><img style="width: 25vh;" src="https://i.pinimg.com/564x/f0/ba/12/f0ba12101344ab39fe5221ac40a7369a.jpg"
+                        alt="ecom-app"></span>
+            </div>
+            <div class=" col-md-3">
+                <ul>
+                    <li><a routerLink="">Home</a></li>
+                    <li><a routerLink="shop">Shop</a></li>
+                    <li class="dropdown mat-menu" [matMenuTriggerFor]="account">
+                        <i class="fa fa-user"></i> Account                       
+                    </li>
+                    <mat-menu #account="matMenu">
+                        <ul class="menu-item">
+                            <li><a routerLink="login" class="mat-menu-item">Login</a></li>
+                            <li><a routerLink="sign-up" class="mat-menu-item">Sign Up</a></li>
+                        </ul>
+                        
+                    </mat-menu>
+                    <li><i class="fa fa-search search"></i></li>
+                    <li>
+                        <a routerLink="cart">
+                            <i style="font-size: 18px; color: #fff;" class="fa fa-shopping-cart"></i>
+                            <div style="font-size: 8px; color: #fff;" class="rounded-pill badge bg-danger">{{totalItem}}</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <ul>
-        <li><a routerLink="">Home</a></li>
-        <li><a routerLink="shop">Shop</a></li>
-        <li><a routerLink="login">Login</a></li>
-        <li><a routerLink="cart">Cart</a></li>
-    </ul>
-</nav>
+</div>
+</section>

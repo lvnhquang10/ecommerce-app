@@ -5,7 +5,7 @@ import { ShopComponent } from './component/shop/shop.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
 import { CartComponent } from './component/cart/cart.component';
 import { LoginComponent } from './component/login/login.component';
-import { SignupComponent } from './component/signup/signup.component';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { CustomerAuthComponent } from './component/customer-auth/customer-auth.component';
@@ -14,8 +14,6 @@ import { SellerAuthComponent } from './component/seller-auth/seller-auth.compone
 
 const routes: Routes = [
   {
-    path: 'products', component: HomeComponent
-  }, {
     path: '', component: HomeComponent
   }, {
     path: 'shop', component: ShopComponent
@@ -26,7 +24,7 @@ const routes: Routes = [
   }, {
     path: 'login', component: LoginComponent
   }, {
-    path: 'sign-up', component: SignupComponent
+    path: 'sign-up', component: SignUpComponent
   }, {
     path: 'header', component: HeaderComponent
   }, {
