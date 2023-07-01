@@ -1,27 +1,77 @@
-# EcommerceApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+# Build an e-commerce Angular web app project
 
-## Development server
+Features:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Display, order products, handle payment process using 3rd party API like stripe or square
+- Manage user information (Authorization, Authentication)
+- Optional: Add basic unit test to the app
+- Containerize the application
+- Deploy on cloud hosting(trying free service like aws or azure)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Roadmap
 
-## Build
+Week 1:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Add components home, shop, login, cart, checkout.
 
-## Running unit tests
+Week 2:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Add components sign up, header, footer.
+- Create API to get data products.
 
-## Running end-to-end tests
+Week 3:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Add an API payment for checkout component.
+- Complete Authentication & Authorization for login and sign up component.
 
-## Further help
+Week 4:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Week 5:
+
+Week 6:
+
+Week 7:
+
+Week 8:
+## Installation
+
+Install with npm
+
+```bash
+    npm install ecommerce-app
+```
+Install JSON server
+```bash
+    npm install -g json-server
+```
+Run JSON server
+```bash
+    json-server --watch db.json
+```
+Run project
+```bash
+    ng serve
+``` 
+## Features
+
+- Display products in shop page
+- Add to cart
+- Remove item
+
+
+
+## Screenshots
+Note: The app component includes header & footer components.
+
+![App Screenshot](https://i.pinimg.com/originals/40/52/cd/4052cd19ffc30b5720064d066f9e58e7.png)
+Picture 1: This is the home component that displays an image.
+
+
+![App Screenshot](https://i.pinimg.com/originals/01/f9/f8/01f9f8930833d3784f72ef2814c73e59.png)
+Picture 2: This is the shop component that displays products pulled from the local API.
+
+![App Screenshot](https://i.pinimg.com/736x/a4/37/45/a43745d4c7c0e89bd61a78fda1dd4f82.jpg)
+
+Picture 3: This is the cart component that displays products added from the shop page.
