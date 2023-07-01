@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.post('/signin', (req, res) => {
+router.post('/login', (req, res) => {
     const { userName, password } = req.body;
     mysqlConnection.query('SELECT userName,roleId FROM user WHERE userName=? AND password=?',
         [userName, password],

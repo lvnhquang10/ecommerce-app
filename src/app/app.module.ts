@@ -17,6 +17,8 @@ import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { ProfileComponent } from './component/profile/profile.component';
+import { AdminComponent } from './component/admin/admin.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProfileComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,8 @@ import { LoginComponent } from './component/login/login.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { CustomerAuthComponent } from './component/customer-auth/customer-auth.component';
-import { SellerAuthComponent } from './component/seller-auth/seller-auth.component';
+import { AdminComponent } from './component/admin/admin.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 const routes: Routes = [
@@ -30,9 +30,9 @@ const routes: Routes = [
   }, {
     path: 'footer', component: FooterComponent
   }, {
-    path: 'customer-auth', component: CustomerAuthComponent
+    path: 'admin', component: AdminComponent
   }, {
-    path: 'seller-auth', component: SellerAuthComponent
+    path: 'profile', component: ProfileComponent
   }, {
     path: '**', pathMatch: 'full', redirectTo: ''
   }

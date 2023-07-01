@@ -5,10 +5,14 @@ import { HttpClient } from "@angular/common/http";
     providedIn: 'root'
 })
 export class ApiService {
+
+
+    private URL = 'http://localhost:3002';
+
     constructor(private http: HttpClient) {
     }
 
-    getMessage() {
-        return this.http.get('http://localhost:3001/');
+    login(user:any) {
+        return this.http.post(`${this.URL}/user/login`,user);
     }
 }
