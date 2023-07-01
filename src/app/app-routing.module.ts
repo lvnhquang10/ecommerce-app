@@ -33,6 +33,8 @@ const routes: Routes = [
     path: 'customer-auth', component: CustomerAuthComponent
   }, {
     path: 'seller-auth', component: SellerAuthComponent
+  }, {
+    path: '**', pathMatch: 'full', redirectTo: ''
   }
 ];
 
