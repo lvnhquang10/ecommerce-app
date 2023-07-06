@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+
 
 const mysqlConnection = require('../connection/connection');
 
@@ -17,7 +19,9 @@ router.get('/', (req, res) => {
 
 router.post('/login', (req, res) => {
     const { userName, password } = req.body;
-    mysqlConnection.query('SELECT userName,roleId FROM user WHERE userName=? AND password=?',
+    const hash = bcrypt.hash(password, 10);
+
+    mysqlConnection.query('SELECT userName, roleId FROM user WHERE userName=? AND password=?',
         [userName, password],
         (err, rows, fields) => {
             if (!err) {
@@ -35,10 +39,6 @@ router.post('/login', (req, res) => {
     )
 })
 
-router.post('/token', verifyToken, (req, res) => {
-    res.json('Secret information');
-})
-
 function verifyToken(req, res, next) {
     if (!req.headers.authorization) return res.this.status(401).json('Non authoritative');
 
@@ -47,7 +47,7 @@ function verifyToken(req, res, next) {
         const content = jwt.verify(token, 'stil');
         req.data = content;
         next();
-    }else{
+    } else {
         res.status(401).json('Token is verified');
     }
 }

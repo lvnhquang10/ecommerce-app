@@ -15,4 +15,12 @@ export class ApiService {
     login(user:any) {
         return this.http.post(`${this.URL}/user/login`,user);
     }
+
+    isAuth():boolean {
+        const token = localStorage.getItem('token');
+        if(!localStorage.getItem('token')) {
+            return false;
+        }
+        return true;
+    }
 }
