@@ -74,6 +74,7 @@ Using XAMPP to create MySQL database
 ## Screenshots
 
 Week 2:
+
 ![App Screenshot](https://i.pinimg.com/564x/40/52/cd/4052cd19ffc30b5720064d066f9e58e7.jpg)
 - Picture 1: This is the home component that displays an image.
 ![App Screenshot](https://i.pinimg.com/564x/01/f9/f8/01f9f8930833d3784f72ef2814c73e59.jpg)
