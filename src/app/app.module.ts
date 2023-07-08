@@ -20,6 +20,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { ProfileComponent } from './component/profile/profile.component';
 import { AdminComponent } from './component/admin/admin.component';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { PostsComponent } from './component/posts/posts.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreatePostComponent } from './component/create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +42,9 @@ import { AdminComponent } from './component/admin/admin.component';
     FooterComponent,
     SignUpComponent,
     ProfileComponent,
-    AdminComponent
+    AdminComponent,
+    PostsComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +54,13 @@ import { AdminComponent } from './component/admin/admin.component';
     BrowserAnimationsModule,
     NgToastModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
