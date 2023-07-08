@@ -20,14 +20,16 @@ Week 3:
 - Complete Authentication for login component.
 
 Week 4:
-- Complete Authorization for login component.
-- Complete Authentication & Authorization for sign up component.
+- Complete Authentication for sign up component.
+- Encrypt password after store in database.
 
 Week 5: 
-- Add an API payment for checkout component. 
-- Create API getting database's product from mySQL.
+- Use authorization for login component.
+- 
 
 Week 6:
+- Add an API payment for checkout component. 
+- Store the product on the database.
 
 Week 7: 
 
@@ -37,44 +39,42 @@ Week 8:
 
 ## Installation
 
-Install with npm
+Install with node modules
 
 ```bash
     npm install 
-```
-
-Install JSON server
-```bash
-    npm install -g json-server
-```
-
-Run JSON server
-```bash
-    json-server --watch db.json
 ```
 Run project
 ```bash
     ng serve
 ```    
-Install express, mysql, nodemon, cors, jsonwebtoken
-```bash
-    npm i express mysql nodemon cors jsonwebtoken
+Install express, body-parser, bcryptjs, mysql2, nodemon, cors, jsonwebtoken, express-validator
+```bash 
+    npm i express body-parser bcryptjs mysql2 nodemon cors jsonwebtoken express-validator
 ```
-Run API authentication
+Run backend
 ```bash
-    nodemon server.js
+    npm start
 ```  
+Using XAMPP to create MySQL database
+- Go to http://localhost:8080/phpmyadmin/
+- Click new button on the left and put the name: posts and choose utf8_general_ci to create database.
+- Click new button in the database "posts" and create name, email, password with type varchar.
+- Check the user and password in the User Account to connect database in the backend.
 ## Features
 
 - Display products in shop page
 - Add to cart
 - Remove item
 - Login authentication
+- Sign up authentication
+- User's password is encrypted in the database
 
 
 ## Screenshots
 
 Week 2:
+
 ![App Screenshot](https://i.pinimg.com/564x/40/52/cd/4052cd19ffc30b5720064d066f9e58e7.jpg)
 - Picture 1: This is the home component that displays an image.
 ![App Screenshot](https://i.pinimg.com/564x/01/f9/f8/01f9f8930833d3784f72ef2814c73e59.jpg)
@@ -85,3 +85,13 @@ Week 2:
 Week 3:
 ![App Screenshot](https://i.pinimg.com/originals/67/8e/f4/678ef44c4713c5705efe5a77098c6031.png)
 - Picture 1: After the login request, the server response and verify the token. It was then routed to the profile page.
+
+Week 4:
+![App Screenshot](https://i.pinimg.com/originals/e0/37/be/e037bec2a804f90d9e8997e00fdbc9ff.png)
+- Pic 1: As you can see on the screen, after sending the request to the api, the api responds "User registered!"
+![App Screenshot](https://i.pinimg.com/originals/6a/34/99/6a349939ba154331a047b600ee80dd7c.png)
+- Pic 2: The user's information is stored in the database. Where the password has been hashed.
+![App Screenshot](https://i.pinimg.com/originals/bb/d9/55/bbd955358e8a8a25024e17823887c154.png)
+- Pic 3: I will use the information I registered earlier to log in. And I got the authentication token. This token is only valid for 1 hour.
+
+Week 5: 
