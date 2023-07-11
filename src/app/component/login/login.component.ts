@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,13 @@ export class LoginComponent implements OnInit {
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash";
 
-  user = {
-    userName: 'justin',
-    password: '222222'
+  loginForm: FormGroup;
+
+  constructor(private authService: AuthService) {  }
+
+  ngOnInit(): void { 
+    this.loginForm = this.createFormGroup();
   }
-
-  constructor(private router: Router) {  }
-
-  ngOnInit(): void { }
 
   hideShowPass() {
     this.isText = !this.isText;
@@ -27,4 +27,15 @@ export class LoginComponent implements OnInit {
     this.isText ? this.type = "text" : this.type = "password";
   }
 
+  createFormGroup(): FormGroup {
+    return new FormGroup({
+      email: new FormControl("", [Validators.required, Validators.email]),
+      password: new FormControl("", [Validators.required, Validators.minLength(7)]),
+    })
+  }
+
+  login(): void {
+    this.authService
+      .login(this.loginForm.value.email, this.loginForm.value.password).subscribe();
+  }
 }

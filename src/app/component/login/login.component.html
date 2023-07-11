@@ -7,24 +7,28 @@
                         <h3 class="pt-3 font-weight-bold">Login</h3>
                     </div>
                     <div class="panel-body p-3">
-                        <form>
+                        <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
                             <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <span class="fa fa-user p-2"></span>
-                                    <input type="text" placeholder="Username">
-                                </div>
+
+                                    <mat-form-field>
+                                        
+                                        <mat-label><span class="fa fa-user p-2"></span> First name</mat-label>
+                                        <input matInput placeholder="Email here" formControlName="email" />
+                                    </mat-form-field>
+
                             </div>
                             <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <span class="fa fa-lock p-2"></span>
-                                    <input [type]="type" placeholder="Password">
-                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
-                                </div>
+                                
+                                    
+                                    <mat-form-field>
+                                        <mat-label><span class="fa fa-lock p-2"></span> Password</mat-label>
+                                        <input matInput type="password" placeholder="Ex. 123123" formControlName="password" />
+                                    </mat-form-field>
                             </div>
                             <div class="form-inline fr mt-4">
                                 <a id="forget" class="font-weight-bold">Forget Password?</a>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Login</button>
+                            <button type="submit" color="accent" [disabled]="!loginForm.valid" mat-raised-button class="btn btn-primary btn-block mt-4 w-100">Login</button>
                             <div class="text-center pt-4 text-muted">Don't have account? <a id="forget" routerLink="signup">Sign Up</a></div>
 
                         </form>

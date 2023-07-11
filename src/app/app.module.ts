@@ -28,7 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { PostsComponent } from './component/posts/posts.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { CreatePostComponent } from './component/create-post/create-post.component';
+
 
 @NgModule({
   declarations: [
@@ -43,8 +43,7 @@ import { CreatePostComponent } from './component/create-post/create-post.compone
     SignUpComponent,
     ProfileComponent,
     AdminComponent,
-    PostsComponent,
-    CreatePostComponent
+    PostsComponent
   ],
   imports: [
     BrowserModule,
