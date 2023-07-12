@@ -15,6 +15,7 @@ export class AuthService {
 
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
   userId: Pick<User, "id">;
+  
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -33,7 +34,7 @@ export class AuthService {
       catchError(this.errorHandlerService.handleError<User>("signup"))
       );
   }
-  
+
   login(
     email: Pick<User, "email">, 
     password: Pick<User, "password">): 
@@ -41,9 +42,13 @@ export class AuthService {
     token: string; userId: Pick<User, "id">
   }> {
     return this.http
-    .post<T>(`${this.url}/login`, { email, password }, this.httpOptions)
+    .post<{token: string; userId: Pick<User, "id">}>(
+      `${this.url}/login`, 
+      { email, password }, 
+      this.httpOptions
+      )
     .pipe(
-      first<T>(),
+      first(),
       tap((tokenObject: {token: string; userId: Pick<User, "id">}) => {
         this.userId = tokenObject.userId;
         localStorage.setItem("token", tokenObject.token);
