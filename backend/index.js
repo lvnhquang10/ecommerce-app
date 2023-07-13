@@ -34,6 +34,8 @@ app.use('/auth', authRoutes);
 
 app.use('/post', postsRoutes);
 
+app.use('/product', authRoutes);
+
 app.use(errorController.get404);
 
 app.use(errorController.get500);
