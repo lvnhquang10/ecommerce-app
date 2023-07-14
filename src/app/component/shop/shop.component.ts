@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { NgToastService } from 'ng-angular-popup';
+import { ProductListService } from 'src/app/services/product-list.service';
+import { Observable } from 'rxjs';
+import { Product } from '../models/Product';
 
 @Component({
   selector: 'app-shop',
@@ -9,18 +12,20 @@ import { NgToastService } from 'ng-angular-popup';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-  public productList: any;
-  constructor(private api: ProductService, private cart: CartService, private toast: NgToastService) {
+  product$: Observable<Product[]>;
+
+  constructor(
+    private api: ProductService, 
+    private cart: CartService, 
+    private toast: NgToastService,
+    private productListService: ProductListService
+    ) {
 
   }
 
   ngOnInit(): void {
-    this.api.getAllProducts().subscribe(res => {
-      this.productList = res;
-      this.productList.forEach((a: any) => {
-        Object.assign(a, { quantity: 1, total: a.price })
-      })
-    });
+    this.product$ = this.productListService.fetchAll();
+
   }
 
   addToCart(item: any) {

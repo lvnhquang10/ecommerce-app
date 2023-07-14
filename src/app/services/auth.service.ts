@@ -6,6 +6,7 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { first, catchError, tap } from "rxjs/operators";
 import { User } from "../component/models/User";
 import { ErrorHandlerService } from "./error-handler.service";
+import { Product } from "../component/models/Product";
 
 @Injectable({
   providedIn: "root",
@@ -57,6 +58,12 @@ export class AuthService {
       }),
       catchError(this.errorHandlerService.handleError<{token: string; userId: Pick<User, "id">}>("login"))
       );
+  }
+
+  fetchAll(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.url, { responseType: "json" }).pipe(
+      tap((_) => console.log("Fetched product"))
+    );
   }
 
 }
