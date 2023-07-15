@@ -98,7 +98,7 @@ Week 5:
 
 Pic 1: Create a new table of product and add 8 products.
 
-![App Screenshot]https://i.pinimg.com/originals/cb/b0/ec/cbb0ec4f95e015c216b0802903a0b6be.jpg)
+![App Screenshot](https://i.pinimg.com/originals/cb/b0/ec/cbb0ec4f95e015c216b0802903a0b6be.jpg)
 
 Pic 2: Fetch data from database.
 
