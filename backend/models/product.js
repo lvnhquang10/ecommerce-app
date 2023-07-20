@@ -9,28 +9,28 @@ module.exports = class Product {
     }
 
     static fetchAll() {
-        return db.execute('SELECT * FROM product');
+        return db.execute('SELECT * FROM `product`');
     }
-    static save(name, price, image) {
+    static save(post) {
         return db.execute(
-            'INSERT INTO product (name, price, image) VALUES (?, ?, ?)',
+            'INSERT INTO `product` (name, price, image) VALUES (?, ?, ?)',
             [post.name, post.price, post.image]
         );
     }
     static post(name, price, image) {
-        return db.execute('INSERT INTO product (name, price, image) VALUES (?, ?, ?)',
+        return db.execute('INSERT INTO `product` (name, price, image) VALUES (?, ?, ?)',
             [name, price, image]
         );
     }
 
     static update(id, name, price, image) {
-        return db.execute('UPDATE product SET name=?, price=?, image=? WHERE id=?',
+        return db.execute('UPDATE `product` SET name=?, price=?, image=? WHERE id=?',
             [name, price, image, id]
         );
     }
 
     static delete(id) {
-        return db.execute('DELETE FROM product WHERE id=?',
+        return db.execute('DELETE FROM `product` WHERE id=?',
             [id]
         );
     }

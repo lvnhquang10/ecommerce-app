@@ -35,4 +35,10 @@ export class CartService {
     })
     this.productList.next(this.cartItemList);
   }
+
+  fetchAll(): Observable<Order[]> {
+    return this.http.get<Order[]>(this.url, { responseType: "json" }).pipe(
+      tap((_) => console.log("Fetched product"))
+    );
+  }
 }

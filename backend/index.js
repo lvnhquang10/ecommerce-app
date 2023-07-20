@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 
 const authRoutes = require('./routes/auth');
 
+const orderRoutes = require('./routes/order');
+
 const postsRoutes = require('./routes/posts');
 
 const errorController = require('./controllers/error');
@@ -35,6 +37,9 @@ app.use('/auth', authRoutes);
 app.use('/post', postsRoutes);
 
 app.use('/product', authRoutes);
+
+
+app.use('/order', orderRoutes);
 
 app.use(errorController.get404);
 
