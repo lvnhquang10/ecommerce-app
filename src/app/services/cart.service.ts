@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject  } from 'rxjs';
+import { BehaviorSubject, Observable, tap  } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,7 +8,8 @@ export class CartService {
 
   public productList = new BehaviorSubject<any>([])
   public cartItemList: any = []
-  constructor() { }
+  public url = '';
+  constructor(private http: HttpClient) { }
 
   getProduct() {
     return this.productList.asObservable();
@@ -36,8 +38,8 @@ export class CartService {
     this.productList.next(this.cartItemList);
   }
 
-  fetchAll(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.url, { responseType: "json" }).pipe(
+  fetchAll(): Observable<any[]> {
+    return this.http.get<any[]>(this.url, { responseType: "json" }).pipe(
       tap((_) => console.log("Fetched product"))
     );
   }
