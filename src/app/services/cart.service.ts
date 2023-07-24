@@ -1,33 +1,46 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject  } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Cart } from "../component/models/Cart";
+import { ErrorHandlerService } from './error-handler.service';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
+  cartData = {
+    products: [],
+    total: 0,
+  };
+
+  cartDataObs$ = new BehaviorSubject(this.cartData);
   public productList = new BehaviorSubject<any>([])
   public cartItemList: any = []
-  constructor() { }
 
+  private url = "http://localhost:3000/cart";
+
+  httpOptions: { headers: HttpHeaders } = {
+    headers: new HttpHeaders({ "Content-Type": "application/json" }),
+  }; 
+  
+  constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService) {
+    
+
+    this.cartDataObs$.next(this.cartData);
+   }
+   //Add to cart but cannot post data on API
+   addToCart(product: any) {
+    this.cartItemList.push(product);
+    this.productList.next(this.cartItemList);
+
+  }
   getProduct() {
     return this.productList.asObservable();
   }
-
-  addToCart(product: any) {
-    this.cartItemList.push(product);
-    this.productList.next(this.cartItemList);
-    this.getTotalPrice();
-  }
-
-  getTotalPrice() {
-    let total = 0;
-    this.cartItemList.map((a:any)=>{
-      total += a.total;
-      
-    })
-    return total;
-  }
-
   removeCartItem(product:any) {
     this.cartItemList.map((a:any,index:any)=>{
       if (product.id === a.id) 
@@ -35,10 +48,21 @@ export class CartService {
     })
     this.productList.next(this.cartItemList);
   }
+  
+  fetchAll(): Observable<Cart[]> {
+    return this.http.get<Cart[]>(this.url, { responseType: "json" }).pipe(
+      tap((_) => console.log("Fetched order")),
+      catchError(
+        this.errorHandlerService.handleError<Cart[]>("fetchAll", [])
+      )
+    );
+  }
 
-  fetchAll(): Observable<Order[]> {
-    return this.http.get<Order[]>(this.url, { responseType: "json" }).pipe(
-      tap((_) => console.log("Fetched product"))
+  post(name: Partial<Cart>): Observable<any> {
+    return this.http.post<Partial<Cart>>(this.url, name, this.httpOptions).pipe(
+      catchError(
+        this.errorHandlerService.handleError<Cart[]>("post")
+      )
     );
   }
 }

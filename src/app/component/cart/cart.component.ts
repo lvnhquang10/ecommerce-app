@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
+
+import { Cart } from '../models/Cart';
+import { Product } from '../models/Product';
 
 @Component({
   selector: 'app-cart',
@@ -7,19 +11,29 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+
+  product$: Observable<Product[]>;
+  cart$: Observable<Cart[]>;
+
   public products!: any[];
   public total: number = 0;
-  constructor(private cart: CartService) { }
+  
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cart.getProduct().subscribe(res => {
+    this.cart$ = this.cartService.fetchAll();
+   
+    this.cartService.getProduct().subscribe(res => {
       this.products = res;
-      this.total = this.cart.getTotalPrice();
     });
-
   }
 
+  fetchAll(): Observable<Cart[]> {
+    return this.cartService.fetchAll();
+  }
+ 
   remove(item:any) {
-    this.cart.removeCartItem(item);
+    this.cartService.removeCartItem(item);
   }
+ 
 }

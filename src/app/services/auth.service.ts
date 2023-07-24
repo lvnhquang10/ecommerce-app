@@ -60,10 +60,6 @@ export class AuthService {
       );
   }
 
-  fetchAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.url, { responseType: "json" }).pipe(
-      tap((_) => console.log("Fetched product"))
-    );
-  }
+  
 
 }
