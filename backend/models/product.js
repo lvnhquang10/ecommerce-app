@@ -8,7 +8,7 @@ module.exports = class Product {
         this.image = image;
     }
 
-    static fetchAll() {
+    static fetchAllProduct() {
         return db.execute('SELECT * FROM `product`');
     }
     static save(post) {

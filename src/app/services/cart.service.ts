@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
 import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -9,9 +7,6 @@ import { Cart } from "../component/models/Cart";
 import { ErrorHandlerService } from './error-handler.service';
 
 
-=======
-import { BehaviorSubject, Observable, tap  } from 'rxjs';
->>>>>>> b39b0452d3d10729e189cac296f6b07bfeb5979b
 @Injectable({
   providedIn: 'root'
 })
@@ -25,11 +20,6 @@ export class CartService {
   cartDataObs$ = new BehaviorSubject(this.cartData);
   public productList = new BehaviorSubject<any>([])
   public cartItemList: any = []
-<<<<<<< HEAD
-=======
-  public url = '';
-  constructor(private http: HttpClient) { }
->>>>>>> b39b0452d3d10729e189cac296f6b07bfeb5979b
 
   private url = "http://localhost:3000/cart";
 
@@ -68,17 +58,11 @@ export class CartService {
     );
   }
 
-<<<<<<< HEAD
   post(name: Partial<Cart>): Observable<any> {
     return this.http.post<Partial<Cart>>(this.url, name, this.httpOptions).pipe(
       catchError(
         this.errorHandlerService.handleError<Cart[]>("post")
       )
-=======
-  fetchAll(): Observable<any[]> {
-    return this.http.get<any[]>(this.url, { responseType: "json" }).pipe(
-      tap((_) => console.log("Fetched product"))
->>>>>>> b39b0452d3d10729e189cac296f6b07bfeb5979b
     );
   }
 }

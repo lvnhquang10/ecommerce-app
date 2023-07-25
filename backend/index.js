@@ -6,8 +6,6 @@ const authRoutes = require('./routes/auth');
 
 const cartRoutes = require('./routes/cart');
 
-const postsRoutes = require('./routes/posts');
-
 const errorController = require('./controllers/error');
 
 const app = express();
@@ -33,8 +31,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/auth', authRoutes);
-
-app.use('/post', postsRoutes);
 
 app.use('/product', authRoutes);
 

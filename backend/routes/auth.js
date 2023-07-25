@@ -29,12 +29,5 @@ router.post(
 
 router.post('/login', authController.login);
 
-router.post('/', authController.postProduct);
-
-router.get('/', authController.getAllProduct);
-
-router.put('/', authController.postProduct);
-
-router.delete('/:id', authController.deleteProduct);
 
 module.exports = router;
