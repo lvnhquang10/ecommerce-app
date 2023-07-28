@@ -10,6 +10,9 @@ const orderRoutes = require('./routes/order');
 
 const errorController = require('./controllers/error');
 
+const productRoutes = require('./routes/product');
+
+
 const app = express();
 
 const ports = process.env.PORT || 3000;
@@ -34,7 +37,7 @@ app.use((req, res, next) => {
 
 app.use('/auth', authRoutes);
 
-app.use('/product', authRoutes);
+app.use('/product', productRoutes);
 
 app.use('/order', orderRoutes);
 

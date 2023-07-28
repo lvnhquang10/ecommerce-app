@@ -20,7 +20,7 @@ import { Product } from "../component/models/Product";
 
     }
 
-    fetchAll(): Observable<Product[]> {
+    fetchAllProduct(): Observable<Product[]> {
         return this.http.get<Product[]>(this.url, { responseType: "json" }).pipe(
           tap((_) => console.log("Fetched product"))
         );

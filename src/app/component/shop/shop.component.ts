@@ -29,28 +29,22 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.product$ = this.productListService.fetchAll();
+    this.product$ = this.productListService.fetchAllProduct();
   }
 
-  addToCart(item: any) {
+  addToCart(product: any) {
     this.toast.success({ detail: 'Product is added', summary: 'Product has been added to cart', duration: 1000 })
-    this.cartService.addToCart(item);
-    console.log(item);
+    this.cartService.addToCart(product);
+    console.log(product);
   }
 
-  fetchAll(): Observable<Cart[]> {
+  fetchAllProduct(): Observable<Cart[]> {
     return this.cartService.fetchAll();
   }
 
-  post(orderProduct: Partial<Cart>): void {
-    const name = (<string>orderProduct).trim();
-    const price = (<number>orderProduct);
-    const image = (<string>orderProduct).trim();
-    const quantity = (<number>orderProduct);
-    if (!name) return;
-    this.cart$ = this.cartService.post({name: name, price: price, image: image, quantity: quantity})
-    .pipe(
-      tap((_) => (this.cart$ = this.fetchAll()))
-    );
+  
+  
+  onAddToCart(): void {
+
   }
 }
