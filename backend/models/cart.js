@@ -9,7 +9,7 @@ module.exports = class Cart {
         this.quantity = quantity;
     }
 
-    static fetchAll() {
+    static fetchAllCart() {
         return db.execute('SELECT * FROM `cart`');
     }
     

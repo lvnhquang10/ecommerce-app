@@ -2,7 +2,7 @@ const {
     getOrders,
     getSingleOrder,
     createOrder,
-  } = require("../models/orderService");
+  } = require("../models/order");
   
   exports.create_order = async (req, res, next) => {
     const { userId, cart } = req.body;

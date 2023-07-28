@@ -6,6 +6,8 @@ const authRoutes = require('./routes/auth');
 
 const cartRoutes = require('./routes/cart');
 
+const orderRoutes = require('./routes/order');
+
 const errorController = require('./controllers/error');
 
 const app = express();
@@ -34,6 +36,7 @@ app.use('/auth', authRoutes);
 
 app.use('/product', authRoutes);
 
+app.use('/order', orderRoutes);
 
 app.use('/cart', cartRoutes);
 

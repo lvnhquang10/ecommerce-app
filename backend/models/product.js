@@ -11,12 +11,7 @@ module.exports = class Product {
     static fetchAllProduct() {
         return db.execute('SELECT * FROM `product`');
     }
-    static save(post) {
-        return db.execute(
-            'INSERT INTO `product` (name, price, image) VALUES (?, ?, ?)',
-            [post.name, post.price, post.image]
-        );
-    }
+    
     static post(name, price, image) {
         return db.execute('INSERT INTO `product` (name, price, image) VALUES (?, ?, ?)',
             [name, price, image]
