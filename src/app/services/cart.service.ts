@@ -26,6 +26,8 @@ export class CartService {
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
   }; 
+  items: any;
+  products: any;
   
   constructor(private http: HttpClient, private errorHandlerService: ErrorHandlerService) {
     
