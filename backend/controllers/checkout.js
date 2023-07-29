@@ -2,9 +2,9 @@ const stripe = require("stripe")("sk_test_51MrHMeGrxNYVMq1CkT9f82kGu6npUWhsRv32Q
 
 exports.checkout = async (req, res, next) => {
     try {
-        let line_items = [];
-        req.body.products.forEach(product => {
-            line_items.push({
+        // Create line_items from products data
+        let line_items = req.body.products.map(product => 
+            ({
                 price_data: {
                     currency: 'usd',
                     product_data: {
@@ -14,7 +14,7 @@ exports.checkout = async (req, res, next) => {
                   },
                   quantity: product.quantity,
             })
-        });
+        );
            
         const session = await stripe.checkout.sessions.create({
             line_items,
