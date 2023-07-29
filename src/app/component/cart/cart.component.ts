@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { loadStripe } from '@stripe/stripe-js';
 
 import { CartService } from 'src/app/services/cart.service';
+import { ProductListService } from 'src/app/services/product-list.service';
 
 import { Cart } from '../models/Cart';
 import { Product } from '../models/Product';
@@ -19,15 +20,16 @@ export class CartComponent implements OnInit {
   cart$: Observable<Cart[]>;
 
   public products!: any[];
-  public total: number = 0;
+  public total = 0;
   
-  constructor(private cartService: CartService, private http: HttpClient) { }
+  constructor(private cartService: CartService, private productListService: ProductListService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.cart$ = this.cartService.fetchAll();
-   
+    this.product$ = this.productListService.fetchAllProduct();
     this.cartService.getProduct().subscribe(res => {
       this.products = res;
+      
     });
   }
 
@@ -35,13 +37,13 @@ export class CartComponent implements OnInit {
     return this.cartService.fetchAll();
   }
  
-  remove(item:any) {
-    this.cartService.removeCartItem(item);
+  removeCart(product:any) {
+    this.cartService.removeCartItem(product);
   }
  
-  onCheckout(): void {
-    this.http.post('http://localhost:4242/checkout', {
-      
+  onCheckout(): void {  
+    this.http.post('http://localhost:3000/checkout', {
+      products: this.cartService.products
     }).subscribe(async(res: any) => {
       let stripe = await loadStripe('pk_test_51MrHMeGrxNYVMq1CbIIJSkvyxWOXwcMOeJgyeQi8fiwvd1VQD0sGkTZkD0CFwPwyXAqqDcEEN6QBBEEFA9tGrTxK00oFgOgiCk');
       stripe?.redirectToCheckout({

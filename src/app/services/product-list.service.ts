@@ -14,6 +14,7 @@ import { Product } from "../component/models/Product";
     providedIn: "root",
   })
   export class ProductListService {
+    [x: string]: any;
     private url = "http://localhost:3000/product";
 
     constructor(private http: HttpClient) {
