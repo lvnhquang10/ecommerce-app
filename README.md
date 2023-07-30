@@ -35,6 +35,13 @@ Week 5:
 Store the order from user on the database.
 
 Week 6:
+- Add database into MySQL
+
+Week 7: 
+- Add checkout method Stripe
+
+Week 8:
+- Containerize an application
 
 
 ## Installation
@@ -56,13 +63,15 @@ Run backend
 ```bash
     npm start
 ``` 
+Download XAMPP at https://www.apachefriends.org/
+
+After successful installation, open XAMPP and then click the start button in the Apache row, the start button in the MySQL row.
+
 Using XAMPP to create MySQL database
 
 - Go to http://localhost:8080/phpmyadmin/
-- Click new button on the left and put the name: posts and choose utf8_general_ci to create database.
-- Click new button in the database "posts" and fill the name table "user" then create name, email, password with type varchar.
-- Check the user and password in the User Account to connect database in the backend.
-- Create a new product table with id, name, price, image.
+- Select the Import item in the toolbar then add the file "posts.sql"
+- Posts contains 2 tables: product and user, product contains data about products, user contains encrypted user account information
 ## Features
 
 - Display products in shop page
@@ -71,6 +80,7 @@ Using XAMPP to create MySQL database
 - Login authentication
 - Sign up authentication
 - User's password is encrypted in the database
+- Payment method: Stripe
 
 
 
@@ -105,3 +115,19 @@ Pic 2: Fetch data from database.
 ![App Screenshot](https://i.pinimg.com/originals/82/14/07/821407a82e849d72fd5863fde64a1a57.jpg)
 
 Pic 3: Show products on shop page.
+
+Week 6: Try to update database on MySQL
+
+Week 7: 
+
+![App Screenshot](https://i.pinimg.com/originals/29/f8/63/29f863497a9dd79ac8e8f3d8d0c21ca9.jpg)
+
+Pic 1: Add products to the cart page.
+
+![App Screenshot](https://i.pinimg.com/originals/81/09/9d/81099d0bc5262671d4ba7ed2d92c488b.jpg)
+
+Pic 2: Stripe payment page
+
+![App Screenshot](https://i.pinimg.com/originals/26/95/b9/2695b99b1e8addf351528a83ef2719a4.jpg)
+
+Pic 3: Successful payment page
