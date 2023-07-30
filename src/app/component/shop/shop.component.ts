@@ -30,6 +30,9 @@ export class ShopComponent implements OnInit {
 
   ngOnInit(): void {
     this.product$ = this.productListService.fetchAllProduct();
+    this.productListService['array'].forEach((a:any) => {
+      Object.assign(a,{quantity:1, total:a.price});
+    });
   }
 
   addToCart(product: any) {

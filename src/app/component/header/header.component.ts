@@ -8,11 +8,14 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
-    public totalItem = 0
-  constructor(private cart:CartService) {}
+    public totalItem: number = 0;
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    
+    this.cartService.getProduct()
+    .subscribe(res => {
+      this.totalItem = res.length;
+    })
   }
 
 }

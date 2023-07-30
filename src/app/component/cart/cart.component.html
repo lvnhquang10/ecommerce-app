@@ -1,8 +1,8 @@
-<ng-container *ngFor="let cart of cart$ | async">
+<ng-container *ngIf="true">
     <div class="container">
         <div class="card-table">
             <div class="card-product">
-                <table class="table table-bordered">
+                <table  class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Image</th>
@@ -15,23 +15,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img style="width: 150px;" src="{{cart.image}}" alt=""></td>
-                            <td>{{cart.name}}</td>
-                            <td>{{cart.price}}</td>
-                            <td>{{cart.quantity}}</td>
+                        <tr *ngFor="let product of products">
+                            <td style="width: 150px;"><img style="width: 150px;" src="{{product.image}}" alt=""></td>
+                            <td style="width: 300px;">{{product.name}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.quantity}}</td>
                             <td></td>
-                            <td><button class="btn btn-danger"  (click)="remove(cart)"><i class="fa fa-trash"></i></button></td>
+                            <td><button class="btn btn-danger"  (click)="removeCart(product)"><i class="fa fa-trash"></i></button></td>
                         </tr>
                         <tr>
                         </tr>
                     </tbody>
                     <td colspan="4"></td>
-                    <td><button (click)="onCheckout()" class="btn btn-yellow">Checkout</button></td>
-                    <td><strong>Total:</strong></td>
+                    <td><button (click)="onCheckout()" class="btn btn-dark">Checkout</button></td>
+                    <td><span>Total:</span></td>
                 </table>
             </div>
         </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="false">
+    <div class="center">
+        <h4>Your cart is empty!</h4>
+        <button routerLink="shop" class="btn btn-primary">Shop now</button>
     </div>
 </ng-container>
 

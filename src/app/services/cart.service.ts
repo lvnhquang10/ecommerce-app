@@ -18,8 +18,8 @@ export class CartService {
   };
 
   cartDataObs$ = new BehaviorSubject(this.cartData);
-  public productList = new BehaviorSubject<any>([])
-  public cartItemList: any = []
+  public productList = new BehaviorSubject<any>([]);
+  public cartItemList: any = [];
 
   private url = "http://localhost:3000/cart";
 
@@ -38,8 +38,17 @@ export class CartService {
    addToCart(product: any) {
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
-
+    this.getTotalPrice();
   }
+
+getTotalPrice(): void {
+  let grandTotal = 0;
+  this.cartItemList.map((a:any) => {
+    grandTotal += a.total;
+  })
+  
+} 
+
   getProduct() {
     return this.productList.asObservable();
   }
@@ -49,6 +58,10 @@ export class CartService {
       this.cartItemList.splice(index,1)
     })
     this.productList.next(this.cartItemList);
+  }
+  setProduct(product: any) {
+    this.cartItemList.push(...product);
+    this.productList.next(product);
   }
   
   fetchAll(): Observable<Cart[]> {
