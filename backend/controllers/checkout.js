@@ -10,7 +10,7 @@ exports.checkout = async (req, res, next) => {
                     product_data: {
                       name: product.name
                     },
-                    unit_amount: product.price,
+                    unit_amount: product.price * 100,
                   },
                   quantity: product.quantity,
             })
