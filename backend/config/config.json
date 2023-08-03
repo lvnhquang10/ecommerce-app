@@ -1,5 +1,5 @@
 {
-    "host": "localhost",
+    "host": "104.198.197.60",
     "user": "root",
     "password": "",
     "database" : "posts"
