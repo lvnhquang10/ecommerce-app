@@ -15,6 +15,9 @@ const productRoutes = require('./routes/product');
 const checkoutRoutes = require('./routes/checkout');
 
 const cors = require('cors');
+const checkoutRoutes = require('./routes/checkout');
+
+const cors = require('cors');
 
 const app = express();
 
